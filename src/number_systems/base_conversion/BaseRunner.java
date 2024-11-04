@@ -12,8 +12,8 @@ public class BaseRunner
 		BaseConversion test = new BaseConversion("10",10);
 		System.out.println(test + " == " +test.getNum(2)+"\n\n");
 
-		test.setNumBase("AB",16);
-		System.out.println(test + " == " +test.getNum(10)+"\n\n");
+//		test.setNumBase("AB",16);
+//		System.out.println(test + " == " +test.getNum(10)+"\n\n");
 
 		test.setNumBase("345",6);
 		System.out.println(test + " == " +test.getNum(4)+"\n\n");

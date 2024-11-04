@@ -8,15 +8,23 @@ public class Word implements Comparable<Word>
 
 	public Word( String s )
 	{
+		word = s;
 	}
 
 	public int compareTo( Word rhs )
-	{		
-		return 0;
+	{
+		if (word.length() < rhs.word.length()) {
+			return -1;
+		} else if (word.length() > rhs.word.length()) {
+			return 1;
+		} else if (word == rhs.word) {
+			return 0;
+		}
+		return word.compareToIgnoreCase(rhs.word);
 	}
 
 	public String toString()
 	{
-		return "";
+		return word;
 	}
 }

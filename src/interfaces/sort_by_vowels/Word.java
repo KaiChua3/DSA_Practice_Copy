@@ -8,31 +8,31 @@ public class Word implements Comparable<Word>
 
 	public Word( String s)
 	{
-
-
+		word = s;
 	}
 
 	private int numVowels()
 	{
 		String vowels = "AEIOUaeiou";
 		int vowelCount=0;
-
-
-
-
-
-
-
+		for (int i = 0; i < word.length(); i++) {
+			for (int j = 0; j < vowels.length(); j++) {
+				if (word.substring(i, i+1).equals(vowels.substring(j,j+1))) {
+					vowelCount++;
+				}
+			}
+		}
 		return vowelCount;
 	}
 
 	public int compareTo(Word rhs)
 	{
-
-
-
-	
-		return -1;
+		if (numVowels() > rhs.numVowels()) {
+			return 1;
+		} else if (numVowels() < rhs.numVowels()) {
+			return -1;
+		}
+		return word.compareTo(rhs.word);
 	}
 
 	public String toString()

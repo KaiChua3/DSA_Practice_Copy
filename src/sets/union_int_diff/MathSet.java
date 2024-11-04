@@ -3,6 +3,7 @@ package sets.union_int_diff;//(c) A+ Computer Science
 
 //Name -
 
+import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.Arrays;
@@ -15,35 +16,78 @@ public class MathSet
 
 	public MathSet()
 	{
+		one = new HashSet<Integer>();
+		two = new HashSet<Integer>();
 	}
 
 	public MathSet(String o, String t)
 	{
+		one = new HashSet<Integer>();
+		two = new HashSet<Integer>();
+		String[] oneArray = o.split(" ");
+		String[] twoArray = t.split(" ");
+		for (int i = 0; i < oneArray.length; i++) {
+			int temp = Integer.parseInt(oneArray[i]);
+			one.add(temp);
+		}
+		for (int i = 0; i < twoArray.length; i++) {
+			int temp = Integer.parseInt(twoArray[i]);
+			two.add(temp);
+		}
+		out.println("Set one " + one);
+		out.println("Set two " + two);
 	}
 
 	public Set<Integer> union()
 	{
-		return null;
+		HashSet<Integer> combined = new HashSet<>();
+		combined.addAll(one);
+		combined.addAll(two);
+		return combined;
 	}
 
 	public Set<Integer> intersection()
 	{
-		return null;
+		Set<Integer> combined = union();
+		Set<Integer> intersection = union();
+		for (Integer i : combined) {
+			if (!one.contains(i) || !two.contains(i)) {
+				intersection.remove(i);
+			}
+		}
+		return intersection;
 	}
 
 	public Set<Integer> differenceAMinusB()
 	{
-		return null;
+		Set<Integer> combined = union();
+		combined.retainAll(one);
+		for (Integer i : two) {
+			combined.remove(i);
+		}
+		return combined;
 	}
 
 	public Set<Integer> differenceBMinusA()
 	{
-		return null;
+		Set<Integer> combined = union();
+		combined.retainAll(two);
+		for (Integer i : one) {
+			combined.remove(i);
+		}
+		return combined;
 	}
 	
 	public Set<Integer> symmetricDifference()
-	{		
-		return null;
+	{
+		Set<Integer> combined = union();
+		Set<Integer> intersection = union();
+		for (Integer i : combined) {
+			if (one.contains(i) && two.contains(i)) {
+				intersection.remove(i);
+			}
+		}
+		return intersection;
 	}	
 	
 	public String toString()

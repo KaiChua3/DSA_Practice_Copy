@@ -16,7 +16,7 @@ public class NumberRunner
 	{
 		ArrayList<Number> numList = new ArrayList<Number>();
 
-		Scanner file = new Scanner(new File("C:\\Users\\Steven Turner\\IdeaProjects\\DSA_Practice\\src\\number_systems\\binary_sorter\\number.dat"));
+		Scanner file = new Scanner(new File("C:\\Users\\chuaz\\OneDrive\\Desktop\\APCSA Work Items\\DSA_Working_Copy\\DSA_Practice_Copy\\src\\number_systems\\binary_sorter\\number.dat"));
 
 		int runs = file.nextInt();
 		file.nextLine();
